@@ -1,0 +1,46 @@
+﻿@page "/counter"
+
+<h1>Counter</h1>
+<div>
+    <h2>Convert meter to feet</h2>
+    <!--write out current meter and feet and convert to 2 decimals-->
+    <p>@meter.ToString("F") meter is @feet.ToString("F") feet </p>
+    <!--form-->
+    <label for="num">Fill in meter:</label>
+    <input type="number" id="meter" @bind="meter" />
+    <button class="btn btn-primary" @onclick="Count">Count</button>
+
+    @code {
+        //properties
+        public double meter;
+        private double feet;
+
+
+        private void Count()
+        {
+            //count feet to meter
+            feet = meter * 3.3;
+        }
+    }
+</div>
+<div>
+    <h2>Convert km/h to mph</h2>
+    <p>@km.ToString("#") Km/H is @mph.ToString("#") Miles/H </p>
+    <!--form-->
+    <label for="km">Fill in km/h:</label>
+    <input type="number" id="km" @bind="km" />
+    <button class="btn btn-primary" @onclick="Countkm">Count</button>
+
+    @code {
+        //properties
+        public double km;
+        public double mph;
+
+
+        private void Countkm()
+        {
+            //count km/H to m/h
+            mph = km * 1.6;
+         }
+    }
+</div>
